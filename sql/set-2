@@ -1,3 +1,19 @@
+CREATE TABLE Faculty (
+    F_ID INT PRIMARY KEY,
+    Fname VARCHAR(50),
+    Lname VARCHAR(50),
+    Hire_date DATE,
+    Salary INT
+);
+
+INSERT INTO Faculty (F_ID, Fname, Lname, Hire_date, Salary)
+VALUES
+    (102, 'Amit', 'Mishra', '1998-10-12', 12000),
+    (103, 'Nitin', 'Vyas', '1994-12-24', 8000),
+    (104, 'Rakshit', 'Soni', '2001-05-18', 14000),
+    (105, 'Rashmi', 'Malhotra', '2004-09-11', 11000),
+    (106, 'Sulekha', 'Srivastava', '2006-06-05', 10000);
+
 CREATE TABLE Courses (
     C_ID VARCHAR(10) PRIMARY KEY,
     F_ID INT,
