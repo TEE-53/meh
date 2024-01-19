@@ -1,0 +1,23 @@
+CREATE TABLE Courses (
+    C_ID VARCHAR(10) PRIMARY KEY,
+    F_ID INT,
+    Cname VARCHAR(50),
+    Fees INT
+);
+
+INSERT INTO Courses (C_ID, F_ID, Cname, Fees)
+VALUES
+    ('C21', 102, 'Grid Computing', 40000),
+    ('C22', 106, 'System Design', 16000),
+    ('C23', 104, 'Computer Security', 8000),
+    ('C24', 106, 'Human Biology', 15000),
+    ('C25', 102, 'Computer Network', 20000),
+    ('C26', 105, 'Visual Basic', 6000);
+
+SELECT * FROM Faculty WHERE Salary > 12000;
+
+SELECT * FROM Courses WHERE Fees BETWEEN 15000 AND 50000;
+
+UPDATE Courses SET Fees = Fees + 500 WHERE Cname = 'System Design';
+
+select C_id, c.f_id, cname, fees from faculty f join Courses c on f.F_ID = c.F_ID where fname = 'Sulekha' order by cname desc;
