@@ -1,0 +1,35 @@
+CREATE TABLE stationary (
+    S_ID VARCHAR(5) PRIMARY KEY,
+    StationeryName VARCHAR(50) NOT NULL,
+    Company VARCHAR(50) NOT NULL,
+    Price INT NOT NULL
+);
+
+INSERT INTO stationary (S_ID, StationeryName, Company, Price) VALUES
+('DP01', 'Dot Pen', 'ABC', 10),
+('PLO2', 'Pencil', 'XYZ', 6),
+('ERO5', 'Eraser', 'XYZ', 7),
+('PL01', 'Pencil', 'CAM', 5),
+('GP02', 'Gel Pen', 'ABC', 15);
+
+CREATE TABLE consumer (
+    C_ID INT PRIMARY KEY,
+    ConsumerName VARCHAR(50) NOT NULL,
+    Address VARCHAR(100) NOT NULL,
+    S_ID VARCHAR(5) REFERENCES stationary(S_ID) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+INSERT INTO consumer (C_ID, ConsumerName, Address, S_ID) VALUES
+(01, 'Good Lerner', 'Delhi', 'PL01'),
+(06, 'Write Well', 'Mumbai', 'GP02'),
+(12, 'Topper', 'Delhi', 'DP01'),
+(15, 'Write & Draw', 'Delhi', 'PLO2'),
+(16, 'Motivation', 'Bangalore', 'PL01');
+
+SELECT * FROM consumer WHERE Address = 'Delhi';
+
+SELECT * FROM stationary WHERE Price BETWEEN 8 AND 15;
+
+SELECT c.ConsumerName, c.Address, s.Company, s.Price FROM consumer c JOIN stationary s ON c.S_ID = s.S_ID;
+
+UPDATE stationary SET Price = Price + 2;
